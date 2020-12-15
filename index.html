@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>What is your Fortune?</title>
+  <meta name="description" content="This page generates fortune cookie sayings.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="main.css">
+  <script type="text/javascript" src="fortune-cookie-generator.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        $('.text').css("opacity", 0 + $(window).scrollTop() / 300)
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <div id='stars'></div>
+  <div id='stars2'></div>
+  <div id='stars3'></div>
+  <h1 class="text" style="margin:7em; opacity: 0;">WELCOME</h1>
+
+  <h1 style="margin-top:50%">Your Fortune Today</h1>
+  <p id="fortune-cookie-text" style="color:white">
+  </p>
+
+  <!--this button executes the `generateFortuneCookie()` function. -->
+  <button class="glow-on-hover" type="button" onclick="generateFortuneCookie()">Let's find out</button>
+
+  <div class="page" style="margin-top:600px; margin-bottom: 300px">
+    <h1>Become A Fortune Teller</h1>
+    <button class="glow-on-hover" type="button" onclick="openForm()">Write Your Own</button>
+  </div>
+  <div class="form-popup" id="myForm">
+    <form action="" class="form-container">
+      <h1>Enter your Fortune</h1>
+
+      <label for="email" style="color:white"><b>Name</b></label>
+      <input type="text" placeholder="Name" name="name" required>
+
+      <label for="psw" style="color:white"><b>Your Fortune</b></label>
+      <input type="text" placeholder="Your Fortune" name="fortune" required>
+
+      <button type="submit" class="btn">Send it to the Universe</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+  <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+  </script>
+
+
+</body>
+
+</html>
